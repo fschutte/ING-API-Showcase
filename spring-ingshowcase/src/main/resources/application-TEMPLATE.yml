@@ -1,0 +1,10 @@
+logging.level:
+  root: INFO
+  org.springframework.web: TRACE
+  nl.brachio.ingapi: TRACE
+
+ingapi:
+  keypath: <path to key.pem for TLS>
+  certpath: <path to certificate.pem for TLS>
+  signkey: <path to key in pem format for Signing>
+  clientId: <client id as given by ING on developers portal>
