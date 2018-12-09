@@ -8,17 +8,17 @@ This application was generated using http://start.vertx.io
 
 Simple demonstration of consuming the ING Showcase API, see https://developer.ing.com/api-marketplace/marketplace.
 
-## Building
+## Building and running
 
-To run your application:
+To run your application from command line:
 ```
 mvn clean compile exec:java
 ```
 
-You can also create a jar file with dependencies created:
+You can also create a jar file with dependencies:
 ```
 mvn package
-java -jar java -jar target/vertx-ingshowcase-1.0-SNAPSHOT-jar-with-dependencies.jar 
+java -jar target/vertx-ingshowcase-1.0-SNAPSHOT-jar-with-dependencies.jar 
 ```
 ## Help
 

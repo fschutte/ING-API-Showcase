@@ -4,9 +4,19 @@ This application was generated using https://start.spring.io
 
 Simple demonstration of consuming the ING Showcase API, see https://developer.ing.com/api-marketplace/marketplace.
 
-## Building
+## Building and running
 
-To run your application:
+To run your application from command line:
+
 ```
-./mvnw clean exec:java
+mvn clean spring-boot:run
 ```
+
+You can also create a jar file with dependencies:
+
+```
+mvn package
+java -jar target/spring-ingshowcase-0.0.1-SNAPSHOT.jar
+```
+
+
