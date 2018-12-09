@@ -16,7 +16,7 @@ Both the Spring Boot as well as the Vert.x application are as autonomous as poss
 Both contain a `main` function so that they can be run from the command line or directly from any IDE.
 
 
-#####Note about the keys and certificates needed
+#### Note about the keys and certificates needed
 
 You can use the following openssl command:
 
