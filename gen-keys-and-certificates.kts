@@ -12,8 +12,10 @@ import java.util.*
  *
  * Note that I have avoided any third party dependency in this script. It is purely based on Java standard libraries.
  *
- * This is the equivalent of the following openssl command:
+ * This is the equivalent of the following openssl commands:
  * openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out certificate.pem
+ * and
+ * openssl pkcs12 -export -out keystore.p12 -in certificate.pem -inkey key.pem -passin pass:changeme -passout pass:changeme
  */
 
 println("Creating keys and certificates for Signing and TLS connection..")
@@ -21,12 +23,23 @@ println("Creating keys and certificates for Signing and TLS connection..")
 listOf("sign", "tls").forEach { sort ->
     val keyFile = File("key-$sort.pem")
     val certFile = File("cert-$sort.pem")
+    val keystoreFile = File("keystore-$sort.p12")
+
     val keyPair = generateKeyPair()
     val certificate = createSelfSignedCertificate(keyPair)
     keyFile.writeText(privateKeyToPem(keyPair.private))
     println("Created ${keyFile.absoluteFile}")
     certFile.writeText(certificateToPem(certificate))
     println("Created ${certFile.absoluteFile}")
+
+    keystoreFile.outputStream().use {
+        KeyStore.getInstance("PKCS12").apply {
+            load(null, null)
+            setKeyEntry("myalias", keyPair.private, "changeme".toCharArray(), arrayOf(certificate))
+            store(it, "changeme".toCharArray())
+            println("Created ${keystoreFile.absoluteFile}")
+        }
+    }
 }
 
 
