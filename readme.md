@@ -1,6 +1,6 @@
 # Consuming the ING Bank API
 
-In here I provide two simple solutions for consuming the ING Bank Showcase API, see https://developer.ing.com.
+In here I provide some simple solutions for consuming the ING Bank Showcase API, see https://developer.ing.com.
 The Showcase API is a production API for which authentication is required (two-legged oauth).
 
 The following prerequisites apply:
@@ -12,8 +12,14 @@ The following prerequisites apply:
 5. Either in the Spring or Vertx application, change the configuration to reflect your client-id and the paths to your certificates and keys    
 
 Once all is set, you can run the application in here.
-Both the Spring Boot as well as the Vert.x application are as autonomous as possible.
-Both contain a `main` function so that they can be run from the command line or directly from any IDE.
+
+Included are three solutions, each using a different framework:
+* Spring Boot
+* Vert.x
+* Ktor
+
+All these applications are as autonomous as possible.
+All contain a `main` function so that they can be run from the command line or directly from any IDE.
 
 
 #### Note about the keys and certificates needed
